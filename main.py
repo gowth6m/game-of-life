@@ -28,11 +28,13 @@ def replacePoints(values):
 
 def checkForNeighbour(point):
     for y in BOARD:
-        if y == point[1]:
-            for x in y:
-                if x == point[0]:
-                    if x == "#" and (y[y.index(x) - 1] == "#" or y[y.index(x) + 1] == "#"):
-                        return True
+        for x in y:
+            print("row: ",BOARD.index(y), "x value: ",y.index(x))
+            if BOARD.index(y) == point[1] and y.index(x) == point[0]:
+                print("2")
+                if y[y.index(x) - 1] == "#" or y[y.index(x) + 1] == "#":
+                    print("3")
+                    return True
     return False
 
 
@@ -40,7 +42,7 @@ def evolve():
     for y in BOARD:
         for x in y:
             if checkForNeighbour([(BOARD.index(y)), (y.index(x))]):
-                y[y.index(x) - 1] = "x"
+                y[y.index(x) - 2] = "x"
 
 
 # def evolution():
@@ -51,9 +53,10 @@ def evolve():
 
 if __name__ == '__main__':
     drawEmptyBoard(5, 6)
-    drawInFormat(BOARD)
+    # drawInFormat(BOARD)
     replacePoints(DOBBY)
     drawInFormat(BOARD)
-    evolve()
+    # evolve()
+    print(checkForNeighbour([1, 4]))
     drawInFormat(BOARD)
     # evolution()
