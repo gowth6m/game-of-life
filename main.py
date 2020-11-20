@@ -17,7 +17,6 @@ def drawInFormat(boardArr):
 
 
 
-
 if __name__ == '__main__':
     drawEmptyBoard(5, 6)
     drawInFormat(BOARD)
